@@ -12,7 +12,6 @@ public class RecipeDaoImpl implements RecipeDao {
 	
 	static SessionFactory sessionFactory = null;
 
-	@Override
 	public Integer createRecipe(Recipe recipe) {
 		System.out.println("Creating Recipe in DB");
 		Session session = HibernateUtility.getSessionFactory().openSession();
@@ -26,7 +25,6 @@ public class RecipeDaoImpl implements RecipeDao {
 		return recipe.getId();
 	}
 
-	@Override
 	public Recipe updateRecipe(Recipe recipe) {
 		System.out.println("Updating Recipe in DB");
 		Session session = HibernateUtility.getSessionFactory().openSession();
@@ -37,7 +35,7 @@ public class RecipeDaoImpl implements RecipeDao {
 		r.setListOfItems(recipe.getCookingTime());
 		r.setSteps(recipe.getSteps());
 		r.setTasteDescription(recipe.getTasteDescription());
-		r.setPicture(recipe.getPicture());
+		r.setUrl(recipe.getUrl());
 		
 		session.getTransaction().commit();
 		session.close();
@@ -45,7 +43,6 @@ public class RecipeDaoImpl implements RecipeDao {
 		return r;
 	}
 
-	@Override
 	public void deleteRecipe(int id) {
 		System.out.println("Deleting Recipe in DB");
 		Session session = HibernateUtility.getSessionFactory().openSession();
@@ -60,7 +57,6 @@ public class RecipeDaoImpl implements RecipeDao {
 		
 	}
 
-	@Override
 	public Recipe fetchRecipeById(int id) {
 		System.out.println("Fetching Recipe by ID in DB");
 		Session session = HibernateUtility.getSessionFactory().openSession();

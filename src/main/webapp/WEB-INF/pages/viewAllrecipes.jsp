@@ -23,7 +23,8 @@
    <td>${recipe.steps}</td>  
    <td>${recipe.tasteDescription}</td>  
    
-   <td><img src="${recipe.picture}" width="100" height="100"/></td>  
+   
+   <td><img src=${recipe.url} width="100" height="100"/></td>
    <td><a href="editbook/${book.id}">Edit</a></td>  
    <td><a href="deletebook/${book.id}">Delete</a></td>  
    </tr>  

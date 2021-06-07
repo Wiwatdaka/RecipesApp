@@ -11,7 +11,7 @@
 <body>
 
  <h1>Add Your New Recipe</h1>  
-       <form:form  modelAttribute="add" action="/RecipesApp/create">    
+       <form:form  modelAttribute="add" action="/RecipesApp/create" method="post" enctype="multipart/form-data">    
         <table >    
          <tr>    
           <td><form:label path="name">Recipe Name : </form:label></td>  
@@ -39,7 +39,7 @@
           <td><form:input path="tasteDescription" /></td>  
          </tr>
          <tr>
-         <td><form:input type="file" id="FILE" path="picture"/></td>
+         <td><input name="file" type="file" id="FILE"/></td>
          </tr>
         
          <tr>    

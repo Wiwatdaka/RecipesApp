@@ -13,7 +13,7 @@ public class CheckImage {
 	//RecipeDaoImpl recipe = new RecipeDaoImpl();
 	
 	public static void main(String args[]) {
-		/*File file = new File("C:\\Users\\Asus\\Downloads\\kakslauttanenNorthernLights.jpg"); //windows
+		File file = new File("C:\\Users\\Asus\\Downloads\\kakslauttanenNorthernLights.jpg"); //windows
 	//	File file = new File("src\\main\\resources\\images\\kakslauttanenNorthernLightsn.png"); //windows
 		System.out.println("bfile"+file);
 		
@@ -36,7 +36,10 @@ public class CheckImage {
         r.setListOfItems("testlist");
         r.setSteps("teststeps");
         r.setTasteDescription("testDesc");
-        r.setPicture(bFile);*/
+       // r.setPicture(bFile);
+        r.setUrl(null);
+        
+        
         
         RecipeDaoImpl recipe = new RecipeDaoImpl();
         
@@ -48,7 +51,7 @@ public class CheckImage {
         try{
             FileOutputStream fos = new FileOutputStream("src\\main\\resources\\images\\output\\out.jpg");  //windows
             //FileOutputStream fos = new FileOutputStream("images/output.jpg");
-            fos.write(rr.getPicture());
+           // fos.write(rr.getPicture());
             fos.close();
         }catch(Exception e){
             e.printStackTrace();

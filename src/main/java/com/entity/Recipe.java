@@ -11,8 +11,9 @@ import javax.persistence.Lob;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "RECIPELIST")
+//@Table(name = "RECIPELIST")
 //@Table(name = "RECIPE")
+@Table(name = "RECIPELISTNEW")
 public class Recipe {
 	
 	@Id
@@ -35,16 +36,19 @@ public class Recipe {
 	@Column(name="taste")
 	private String tasteDescription;
 	
-	@Lob
-	@Column(name="picture")
-	private byte[] picture;
+//	@Lob
+//	@Column(name="picture")
+//	private byte[] picture;
+	
+	@Column(name="url")
+	private String url;
 	
 	public Recipe() {
 		
 	}
 
 	public Recipe(int id, String name, String cookingTime, String listOfItems, String steps, String tasteDescription
-			,byte[] picture
+			,String url
 			) {
 		super();
 		this.id = id;
@@ -53,7 +57,8 @@ public class Recipe {
 		this.listOfItems = listOfItems;
 		this.steps = steps;
 		this.tasteDescription = tasteDescription;
-		this.picture = picture;
+		//this.picture = picture;
+		this.url = url;
 	}
 
 
@@ -105,21 +110,37 @@ public class Recipe {
 		this.tasteDescription = tasteDescription;
 	}
 
-	public byte[] getPicture() {
-		return picture;
+	public String getUrl() {
+		return url;
 	}
 
-	public void setPicture(byte[] picture) {
-		this.picture = picture;
+	public void setUrl(String url) {
+		this.url = url;
 	}
 
 	@Override
 	public String toString() {
 		return "Recipe [id=" + id + ", name=" + name + ", cookingTime=" + cookingTime + ", listOfItems=" + listOfItems
-				+ ", steps=" + steps + ", tasteDescription=" + tasteDescription + ", picture="
-				+ Arrays.toString(picture)
-				+ "]";
+				+ ", steps=" + steps + ", tasteDescription=" + tasteDescription + ", url=" + url + "]";
 	}
+	
+	
+
+//	public byte[] getPicture() {
+//		return picture;
+//	}
+//
+//	public void setPicture(byte[] picture) {
+//		this.picture = picture;
+//	}
+
+//	@Override
+//	public String toString() {
+//		return "Recipe [id=" + id + ", name=" + name + ", cookingTime=" + cookingTime + ", listOfItems=" + listOfItems
+//				+ ", steps=" + steps + ", tasteDescription=" + tasteDescription + ", picture="
+//				+ Arrays.toString(picture)
+//				+ "]";
+//	}
 	
 
 }
