@@ -24,12 +24,12 @@
    <td>${recipe.tasteDescription}</td>  
    
    
-   <td><img src=${recipe.url} width="100" height="100"/></td>
+   <td><img src="images/${recipe.url}" width="100" height="100"/></td>
    <td><a href="editbook/${book.id}">Edit</a></td>  
    <td><a href="deletebook/${book.id}">Delete</a></td>  
    </tr>  
    </c:forEach>  
-   </table>  
+   </table>
 
 </body>
 </html>

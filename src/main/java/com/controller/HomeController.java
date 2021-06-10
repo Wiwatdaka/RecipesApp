@@ -1,5 +1,8 @@
 package com.controller;
 
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -7,6 +10,7 @@ import java.nio.file.Paths;
 import java.util.List;
 
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -23,7 +27,7 @@ import com.entity.Recipe;
 
 @Controller
 public class HomeController {
-	
+	//private static final String UPLOAD_DIRECTORY ="/images"; 
 	RecipeDaoImpl r = new RecipeDaoImpl();
 	
 	@RequestMapping(value ="/recipeForm", method = {RequestMethod.GET,RequestMethod.PUT})
@@ -34,7 +38,11 @@ public class HomeController {
 	
 	@RequestMapping(value="/create", method = RequestMethod.POST)    
     public ModelAndView save(@ModelAttribute("add") Recipe recipe,
+    		//HttpSession session,
     		@RequestParam("file") CommonsMultipartFile file){
+		
+//		ServletContext context = session.getServletContext();  
+//	    String path = context.getRealPath(UPLOAD_DIRECTORY);
 		
 		if(file.isEmpty()) {
 			System.out.println("file is empty");
@@ -42,16 +50,35 @@ public class HomeController {
 		
 		try {
 			byte[] b = file.getBytes();
-			//ServletContext context = session.getServletContext();F:\eclipse-jee-2020-12-R-win32-x86_64\eclipse
+			//ServletContext context = session.getServletContext();F:\eclipse-jee-2020-12-R-win32-x86_64\eclipse C:\Program Files\Apache Software Foundation\Tomcat8.5\webapps\ROOT
 //			Path path = Paths.get("C:\\Users\\Asus\\Desktop\\mvcCrudWorkspace\\localServer"+"\\"+file.getOriginalFilename());
-			Path path = Paths.get("F:\\eclipse-jee-2020-12-R-win32-x86_64\\eclipse\\localServer"+"\\"+file.getOriginalFilename());
+//			Path path = Paths.get("F:\\eclipse-jee-2020-12-R-win32-x86_64\\eclipse\\localServer"+"\\"+file.getOriginalFilename());
+//			Path path = Paths.get("C:\\Program Files\\Apache Software Foundation\\Tomcat8.5\\webapps\\ROOT"+"\\"+file.getOriginalFilename());
+			
+
+			Path path = Paths.get("C:\\Users\\Asus\\Desktop\\mvcCrudWorkspace\\localServer"+"\\"+file.getOriginalFilename());
+
+//			Path path = Paths.get("C:\\Users\\Asus\\Desktop\\mvcCrudWorkspace\\RecipesApp\\src\\main\\webapp\\WEB-INF\\images"+"\\"+file.getOriginalFilename());
+
+
 
 			Files.write(path, b);
 			System.out.println("File path or name is: "+file.getOriginalFilename());
-			System.out.println(System.getProperty("user.dir"));
+			//System.out.println(System.getProperty("user.dir"));
 			System.out.println(path.toString());
 			
-			recipe.setUrl(path.toString());
+			
+//			 String filename = file.getOriginalFilename();  
+//			  
+//			 System.out.println(path+" "+filename);
+//			 
+//			 BufferedOutputStream stream =new BufferedOutputStream(new FileOutputStream(  
+//			         new File(path + File.separator + filename)));
+//			    stream.write(b);  
+//			    stream.flush();  
+//			    stream.close();  
+			
+			recipe.setUrl(file.getOriginalFilename());
 			
 			
 			//to set the path and store in database
