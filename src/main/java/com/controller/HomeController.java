@@ -125,9 +125,18 @@ public class HomeController {
     public ModelAndView edit(@PathVariable int id){   
     	ModelAndView mv = new ModelAndView("edit_recipe");
     	Recipe recipe=r.fetchRecipeById(id);   
-        mv.addObject("u",recipe);  
+        mv.addObject("recipe",recipe);  
         return mv;
     }
+	
+	 @RequestMapping(value = "/editSaveRecipe", method = { RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT})
+	    public ModelAndView update(@ModelAttribute("add") Recipe recipe) {
+	    	ModelAndView mv = new ModelAndView("redirect:/view");
+	    	System.out.println(recipe);
+	    	r.updateRecipe(recipe);
+	        return mv;
+	 
+	    }
 	
 	@RequestMapping(value = "/deleteRecipe/{id}", method = { RequestMethod.GET, RequestMethod.DELETE })
     public ModelAndView delete(@PathVariable("id") int id) {

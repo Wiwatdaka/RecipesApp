@@ -12,12 +12,19 @@
 <body style="text-align:center;background-color: #0099cc;">
 
 <h1>${recipe.name}</h1>
-<div>${recipe.url}</div>
+
 <img src="../images/${recipe.url}" width="100" height="100"/>
 <div>${recipe.cookingTime}</div>
 <div>${recipe.listOfItems}</div>
 <div>${recipe.steps}</div>
 <div>${recipe.tasteDescription}</div>
+
+
+<button style="background-color: #0066ff" onclick="document.location='/RecipesApp/editRecipe/${recipe.id}'">Edit Recipe</button>
+
+<button style="background-color: #0066ff" onclick="document.location='/RecipesApp/deleteRecipe/${recipe.id}'">Delete Recipe</button>
+
+
 
 </body>
 </html>
