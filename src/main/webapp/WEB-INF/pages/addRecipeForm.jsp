@@ -8,10 +8,10 @@
 <meta charset="ISO-8859-1">
 <title>Add a Recipe</title>
 </head>
-<body>
+<body style="background-color: #0099cc;">
 
- <h1>Add Your New Recipe</h1>  
-       <form:form  modelAttribute="add" action="/RecipesApp/create" method="post" enctype="multipart/form-data">    
+ <h1 style="text-align:center">Add Your New Recipe</h1>  
+       <form:form  modelAttribute="add" action="/RecipesApp/create" method="post" enctype="multipart/form-data" style="margin-left: 25%; width:50%;">    
         <table >    
          <tr>    
           <td><form:label path="name">Recipe Name : </form:label></td>  

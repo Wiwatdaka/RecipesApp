@@ -9,24 +9,16 @@
 <meta charset="ISO-8859-1">
 <title>ViewAll</title>
 </head>
-<body>
+<body style="text-align:center;background-color: #0099cc;">
 
 <h1>All Recipe List</h1>  
-<table border="2" width="70%" cellpadding="2">  
-<tr><th>Id</th><th>Recipe Name</th><th>Cooking Time</th><th>List of Items</th><th>Steps</th><th>Taste Description</th><th>Picture</th><th>Edit</th><th>Delete</th></tr>  
+<table style="margin-left: auto;margin-right: auto;" border="2" width="70%" cellpadding="2">  
+<tr><th>Id</th><th>Recipe Name</th><th>View</th></tr>  
    <c:forEach var="recipe" items="${list}">   
    <tr>  
    <td>${recipe.id}</td>  
-   <td>${recipe.name}</td>  
-   <td>${recipe.cookingTime}</td>  
-   <td>${recipe.listOfItems}</td>  
-   <td>${recipe.steps}</td>  
-   <td>${recipe.tasteDescription}</td>  
-   
-   
-   <td><img src="images/${recipe.url}" width="100" height="100"/></td>
-   <td><a href="editbook/${book.id}">Edit</a></td>  
-   <td><a href="deletebook/${book.id}">Delete</a></td>  
+   <td>${recipe.name}</td>   
+   <td><a href="viewEachRecipe/${recipe.id}">View</a></td>  
    </tr>  
    </c:forEach>  
    </table>

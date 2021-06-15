@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -111,6 +112,29 @@ public class HomeController {
 		mv.addObject("list", list);
 		return mv;
 	}
+	
+	@RequestMapping(value="/viewEachRecipe/{id}", method = { RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT})    
+    public ModelAndView viewEachrecipe(@PathVariable int id){   
+    	ModelAndView mv = new ModelAndView("view_each_recipe");
+    	Recipe recipe=r.fetchRecipeById(id);  
+        mv.addObject("recipe",recipe);  
+        return mv;
+    }
+	
+	@RequestMapping(value="/editRecipe/{id}", method = { RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT})    
+    public ModelAndView edit(@PathVariable int id){   
+    	ModelAndView mv = new ModelAndView("edit_recipe");
+    	Recipe recipe=r.fetchRecipeById(id);   
+        mv.addObject("u",recipe);  
+        return mv;
+    }
+	
+	@RequestMapping(value = "/deleteRecipe/{id}", method = { RequestMethod.GET, RequestMethod.DELETE })
+    public ModelAndView delete(@PathVariable("id") int id) {
+		r.deleteRecipe(id);
+    	ModelAndView mv = new ModelAndView("redirect:/view");
+    	return mv;
+  }
 	
 	@ModelAttribute("add")
 	 public Recipe populateUser() {
