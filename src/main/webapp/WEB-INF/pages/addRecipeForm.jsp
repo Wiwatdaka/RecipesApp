@@ -9,6 +9,7 @@
 <title>Add a Recipe</title>
 </head>
 <body style="background-color: #0099cc;">
+<jsp:include page="header.jsp" />
 
  <h1 style="text-align:center">Add Your New Recipe</h1>  
        <form:form  modelAttribute="add" action="/RecipesApp/create" method="post" enctype="multipart/form-data" style="margin-left: 25%; width:50%;">    

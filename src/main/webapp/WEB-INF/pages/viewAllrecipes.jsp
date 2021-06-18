@@ -10,6 +10,7 @@
 <title>ViewAll</title>
 </head>
 <body style="text-align:center;background-color: #0099cc;">
+<jsp:include page="header.jsp" />
 
 <h1>All Recipe List</h1>  
 <table style="margin-left: auto;margin-right: auto;" border="2" width="70%" cellpadding="2">  

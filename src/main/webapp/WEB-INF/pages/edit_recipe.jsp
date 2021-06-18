@@ -9,6 +9,7 @@
 <title>Edit Recipe</title>
 </head>
 <body style="background-color: #0099cc;">
+<jsp:include page="header.jsp" />
 
  <h1 style="text-align:center">Edit Your Recipe</h1>  
        <form:form  modelAttribute="add" action="/RecipesApp/editSaveRecipe" method="post" enctype="multipart/form-data" style="margin-left: 25%; width:50%;">    

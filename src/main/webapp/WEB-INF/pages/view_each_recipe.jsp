@@ -10,6 +10,7 @@
 <title>Recipe</title>
 </head>
 <body style="text-align:center;background-color: #0099cc;">
+<jsp:include page="header.jsp" />
 
 <h1>${recipe.name}</h1>
 

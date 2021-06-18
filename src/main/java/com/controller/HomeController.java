@@ -145,6 +145,12 @@ public class HomeController {
     	return mv;
   }
 	
+	@RequestMapping(value ="/about", method = {RequestMethod.GET})
+	public ModelAndView showAbout() {
+		ModelAndView mv = new ModelAndView("about");
+		return mv;
+	}
+	
 	@ModelAttribute("add")
 	 public Recipe populateUser() {
 		 Recipe b = new Recipe();

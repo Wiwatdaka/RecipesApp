@@ -10,22 +10,22 @@
   color: white;
   text-align: center;
   padding: 14px 16px;
-  text-decoration: none;" class="active" href="#home">Home</a></li>
+  text-decoration: none;" class="active" href="/RecipesApp">Home</a></li>
   <li style="float: left"><a style="display: block;
   color: white;
   text-align: center;
   padding: 14px 16px;
-  text-decoration: none;" href="#news">Add New Recipe</a></li>
+  text-decoration: none;" href="/RecipesApp/recipeForm">Add New Recipe</a></li>
   <li style="float: left"><a style="display: block;
   color: white;
   text-align: center;
   padding: 14px 16px;
-  text-decoration: none;" href="#contact">View all Recipe</a></li>
+  text-decoration: none;" href="/RecipesApp/view">View all Recipe</a></li>
   <li style="float: left"><a style="display: block;
   color: white;
   text-align: center;
   padding: 14px 16px;
-  text-decoration: none;" href="#about">About</a></li>
+  text-decoration: none;" href="/RecipesApp/about">About</a></li>
 </ul>
 </div>
 <div>
